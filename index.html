@@ -1,0 +1,3823 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat Ulang Tahun ke-18 Sayangku</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+      :root {
+        --pink-pastel: #ffd1dc;
+        --pink-medium: #ffa8ba;
+        --pink-dark: #ff85a1;
+        --white: #fff9fb;
+        --gold: #f9e076;
+        --gold-dark: #e6c862;
+        --shadow: rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--pink-pastel);
+        color: #333;
+        line-height: 1.6;
+        overflow-x: hidden;
+        cursor: none;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffa8ba' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+      }
+
+      /* === Cursor Mickey Hand (Gaya Kartun Nyata) 🧤 === */
+
+      /* Gambar cursor kustom */
+      .custom-cursor {
+        position: fixed;
+        width: 48px;
+        height: 48px;
+        background: url("cursor1.png") center/contain no-repeat;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: transform 0.05s ease;
+        z-index: 9999;
+      }
+
+      /* IMPROVED Falling Petals - Fixed to fall from top */
+      .petal {
+        position: fixed;
+        pointer-events: none;
+        z-index: 9998;
+        animation: fall linear forwards;
+        top: -50px; /* Start from above the screen */
+      }
+
+      /* Realistic petal shapes */
+      .petal.petal-1 {
+        width: 25px;
+        height: 25px;
+        background: radial-gradient(circle at 30% 30%, #ff85a1, #ffa8ba);
+        border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%;
+        transform: rotate(0deg);
+      }
+
+      .petal.petal-2 {
+        width: 20px;
+        height: 20px;
+        background: radial-gradient(circle at 40% 40%, #ffa8ba, #ffd1dc);
+        border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+        transform: rotate(45deg);
+      }
+
+      .petal.petal-3 {
+        width: 30px;
+        height: 30px;
+        background: radial-gradient(circle at 35% 35%, #ff85a1, #ffa8ba);
+        border-radius: 70% 30% 60% 40% / 30% 70% 30% 70%;
+        transform: rotate(90deg);
+      }
+
+      .petal.petal-4 {
+        width: 22px;
+        height: 22px;
+        background: radial-gradient(circle at 45% 45%, #ffa8ba, #ffd1dc);
+        border-radius: 40% 60% 50% 50% / 50% 50% 60% 40%;
+        transform: rotate(135deg);
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        70% {
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Enhanced Paper Tear Transition */
+      .page-tear {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--pink-pastel);
+        z-index: 10000;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .page-tear.active {
+        transform: scaleX(1);
+      }
+
+      .page-tear::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--pink-medium) 0%,
+          var(--pink-pastel) 50%,
+          var(--gold) 100%
+        );
+        opacity: 0.1;
+      }
+
+      .page-tear::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 100%;
+        background: linear-gradient(
+          to left,
+          rgba(0, 0, 0, 0.1) 0%,
+          transparent 100%
+        );
+        z-index: 10001;
+      }
+
+      .page-tear-content {
+        text-align: center;
+        color: var(--pink-dark);
+        font-family: "Dancing Script", cursive;
+        font-size: 2.5rem;
+        z-index: 10002;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s ease 0.3s;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .page-tear.active .page-tear-content {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .page {
+        display: none;
+        min-height: 100vh;
+        padding: 20px;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .active {
+        display: flex;
+      }
+
+      .scrapbook-container {
+        background-color: var(--white);
+        border-radius: 15px;
+        padding: 30px;
+        max-width: 800px;
+        width: 90%;
+        box-shadow: 0 10px 30px var(--shadow);
+        position: relative;
+        border: 2px solid var(--gold);
+        margin: 20px 0;
+      }
+
+      .scrapbook-container::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        background: linear-gradient(45deg, var(--pink-medium), var(--gold));
+        border-radius: 20px;
+        z-index: -1;
+        opacity: 0.3;
+      }
+
+      h1,
+      h2 {
+        font-family: "Dancing Script", cursive;
+        color: var(--pink-dark);
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+    .btn {
+          background-color: var(--pink-medium);
+          color: white;
+          border: none;
+          padding: 10px 25px;
+          border-radius: 30px;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: all 0.3s 
+      ease;
+          font-family: "Poppins", sans-serif;
+          box-shadow: 0 4px 10px rgba(255, 133, 161, 0.3);
+          width: 25%;
+          min-width: 130px;
+      }
+
+      .btn:hover {
+        background-color: var(--pink-dark);
+        box-shadow: 0 6px 15px var(--shadow);
+      }
+
+      .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .btn:disabled:hover {
+        transform: none;
+        background-color: var(--pink-medium);
+      }
+
+      .btn-gold {
+        background-color: var(--gold);
+        color: #333;
+      }
+
+      .btn-gold:hover {
+        background-color: var(--gold-dark);
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 800px;
+        margin-top: 20px;
+      }
+
+      /* Style untuk tombol di halaman Fun */
+      #fun .scrapbook-container {
+        position: relative;
+        min-height: 400px; /* Pastikan container cukup tinggi */
+      }
+
+      #backToLetter {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+      }
+
+      #toEnding {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        transition: all 0.3s ease;
+      }
+
+      /* Style khusus untuk tombol yang sedang bergerak */
+      #toEnding.moving {
+        transition: all 0.3s ease;
+      }
+
+      #toEnding:not(.moving):hover {
+        transform: scale(1.05);
+      }
+
+      .music-control {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--pink-medium);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 10px var(--shadow);
+        z-index: 100;
+      }
+
+      .music-control i {
+        font-size: 1.5rem;
+      }
+
+      .page-indicator {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 100;
+      }
+
+      .page-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: var(--pink-medium);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .page-dot.active {
+        background-color: var(--pink-dark);
+        transform: scale(1.2);
+      }
+
+      /* Video Styles */
+      .video-container {
+        margin: 20px 0;
+      }
+
+      video {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px var(--shadow);
+      }
+
+      .video-note {
+        font-size: 0.9rem;
+        color: #666;
+        margin-top: 10px;
+      }
+
+      /* Enhanced Instagram-like Post Styles - Cute Aesthetic */
+      .instagram-post {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 25px;
+        box-shadow: 0 8px 32px rgba(255, 209, 220, 0.3),
+          0 4px 16px rgba(255, 133, 161, 0.2);
+        max-width: 420px;
+        width: 100%;
+        margin: 30px auto;
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+        border: 2px solid rgba(255, 209, 220, 0.3);
+        position: relative;
+        animation: postFadeIn 1s ease-out;
+      }
+
+      @keyframes postFadeIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.9) translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      .post-header {
+        display: flex;
+        align-items: center;
+        padding: 18px 20px;
+        border-bottom: 1px solid rgba(255, 209, 220, 0.3);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 245, 248, 0.8),
+          rgba(255, 233, 240, 0.8)
+        );
+      }
+
+      .profile-pic {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 14px;
+        border: 3px solid rgba(255, 133, 161, 0.4);
+        box-shadow: 0 2px 8px rgba(255, 133, 161, 0.2);
+      }
+
+      .username {
+        flex: 1;
+        font-weight: 600;
+        font-size: 16px;
+        color: #ff85a1;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .menu-btn {
+        background: none;
+        border: none;
+        font-size: 22px;
+        color: #ff85a1;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        background: rgba(255, 209, 220, 0.2);
+      }
+
+      .menu-btn:hover {
+        background: rgba(255, 133, 161, 0.3);
+        transform: scale(1.1);
+      }
+
+      .post-media {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 9 / 16;
+        background: linear-gradient(135deg, #ffe4e8, #ffd1dc);
+        overflow: hidden;
+      }
+
+      .post-media::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 30% 30%,
+            rgba(255, 255, 255, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 70% 70%,
+            rgba(255, 255, 255, 0.2) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .post-media video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border: none;
+        box-shadow: none;
+        position: relative;
+        z-index: 2;
+      }
+
+      .post-actions {
+        display: flex;
+        padding: 16px 20px;
+        gap: 20px;
+        background: rgba(255, 245, 248, 0.8);
+        border-top: 1px solid rgba(255, 209, 220, 0.3);
+      }
+
+      .action-btn {
+        background: rgba(255, 209, 220, 0.3);
+        border: none;
+        font-size: 26px;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        color: #ff85a1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+      }
+
+      .action-btn:hover {
+        background: rgba(255, 133, 161, 0.4);
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(255, 133, 161, 0.3);
+      }
+
+      .action-btn.comment-btn {
+        cursor: pointer;
+      }
+
+      .like-btn.liked {
+        background: #ff3040;
+        color: white;
+        animation: heartPulse 0.6s ease;
+        box-shadow: 0 4px 12px rgba(255, 48, 64, 0.4);
+      }
+
+      @keyframes heartPulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.3);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .post-caption {
+        padding: 16px 20px;
+        font-size: 15px;
+        line-height: 1.5;
+        color: #555;
+        background: rgba(255, 245, 248, 0.6);
+      }
+
+      .post-caption strong {
+        color: #ff85a1;
+        font-weight: 600;
+      }
+
+      .instagram-post {
+        position: relative;
+      }
+
+/* PERBAIKAN LEBAR KOMENTAR INSTAGRAM - 398px */
+/* PERBAIKAN LEBAR KOMENTAR INSTAGRAM - 398px FIXED */
+.post-comments {
+    display: none;
+    position: absolute;
+    width: 398px !important;
+    max-width: 398px !important;
+    min-width: 398px !important;
+    max-height: 390px;
+    overflow-y: auto;
+    background: #ffeef2;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(255, 126, 104, 0.885);
+    border: 2px solid rgba(255, 209, 220, 0.3);
+    padding: 16px 20px;
+    z-index: 1000;
+    font-family: "Poppins", sans-serif;
+    opacity: 0;
+    transform: scale(0.8) translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    bottom: calc(100% - 20px);
+    left: 50%;
+    transform-origin: bottom center;
+}
+
+/* Pastikan lebar tetap 398px ketika visible */
+.post-comments.visible {
+    display: block;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    width: 398px !important;
+    max-width: 398px !important;
+    min-width: 398px !important;
+}
+
+/* Pastikan arrow indicator tetap di tengah */
+.post-comments::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: none;
+    border-bottom: 8px solid rgba(255, 209, 220, 0.3);
+}
+
+.post-comments::before {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%) translateY(1px);
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: none;
+    border-bottom: 7px solid #ffeef2;
+    z-index: 11;
+}
+
+/* Style untuk scrollbar yang lebih cantik */
+.post-comments::-webkit-scrollbar {
+    width: 6px;
+}
+
+.post-comments::-webkit-scrollbar-track {
+    background: rgba(255, 209, 220, 0.2);
+    border-radius: 10px;
+}
+
+.post-comments::-webkit-scrollbar-thumb {
+    background: rgba(255, 133, 161, 0.5);
+    border-radius: 10px;
+}
+
+.post-comments::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 133, 161, 0.7);
+}
+
+      .comment {
+        margin-top: 12px;
+        font-size: 14px;
+        line-height: 1.4;
+        color: #666;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 12px 16px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 209, 220, 0.4);
+        position: relative;
+        animation: commentSlideIn 0.8s ease-out;
+      }
+
+      .comment:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .comment:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes commentSlideIn {
+        0% {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .comment strong {
+        font-weight: 600;
+        color: #ff85a1;
+      }
+
+      .comment::before {
+        content: "💖";
+        position: absolute;
+        left: -8px;
+        top: 12px;
+        font-size: 12px;
+        background: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid rgba(255, 209, 220, 0.4);
+      }
+
+      /* Cute Navigation Buttons */
+      /* === Fix Tombol Video Section === */
+      #video .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 25px;
+        padding: 0 20px;
+      }
+
+      #video .btn {
+        background-color: var(--pink-medium);
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 30px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: "Poppins", sans-serif;
+        box-shadow: 0 4px 10px rgba(255, 133, 161, 0.3);
+        width: 25%; /* biar tombol tidak terlalu panjang */
+        min-width: 130px; /* ukuran minimal biar konsisten */
+      }
+
+      #video .btn:hover {
+        background: linear-gradient(135deg, #ff85a1, #ff6b8a);
+        box-shadow: 0 6px 15px rgba(255, 133, 161, 0.5);
+        transform: translateY(-2px);
+      }
+
+      .btn:hover {
+        background: linear-gradient(135deg, #ff85a1, #ff6b8a);
+        box-shadow: 0 6px 15px rgba(255, 133, 161, 0.5);
+        transform: translateY(-2px);
+      }
+
+      /* Bokeh Background Effect for Video Page */
+      #video::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 133, 161, 0.1) 2px,
+            transparent 2px
+          ),
+          radial-gradient(
+            circle at 80% 40%,
+            rgba(255, 209, 220, 0.15) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at 40% 80%,
+            rgba(255, 182, 193, 0.1) 3px,
+            transparent 3px
+          ),
+          radial-gradient(
+            circle at 60% 10%,
+            rgba(255, 240, 245, 0.2) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at 90% 90%,
+            rgba(255, 160, 180, 0.1) 2px,
+            transparent 2px
+          );
+        background-size: 50px 50px, 30px 30px, 40px 40px, 25px 25px, 35px 35px;
+        background-position: 0 0, 10px 10px, 20px 20px, 5px 5px, 15px 15px;
+        pointer-events: none;
+        z-index: -1;
+        animation: bokehFloat 20s ease-in-out infinite;
+      }
+
+      @keyframes bokehFloat {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-10px) rotate(90deg);
+        }
+        50% {
+          transform: translateY(-5px) rotate(180deg);
+        }
+        75% {
+          transform: translateY(-15px) rotate(270deg);
+        }
+      }
+
+      /* Letter Styles */
+      .letter-content {
+        text-align: left;
+        margin: 20px 0;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 10px;
+        border-left: 5px solid var(--pink-medium);
+        position: relative;
+        min-height: 300px;
+      }
+
+      .typing-cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1.2em;
+        background-color: var(--pink-dark);
+        margin-left: 2px;
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      /* Fun Page Styles */
+      .fun-button {
+        background-color: var(--pink-medium);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 20px 0;
+        font-family: "Poppins", sans-serif;
+        box-shadow: 0 4px 10px var(--shadow);
+      }
+
+      .fun-button:hover {
+        background-color: var(--pink-dark);
+        transform: scale(1.05);
+      }
+
+      .love-message {
+        display: none;
+        font-size: 1.5rem;
+        color: var(--pink-dark);
+        margin: 20px 0;
+        font-weight: bold;
+      }
+
+      .heart {
+        position: absolute;
+        font-size: 24px;
+        animation: float 3s ease-in-out forwards;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) scale(0);
+          opacity: 0;
+        }
+      }
+
+      /* Ending Page Styles */
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        h2 {
+          font-size: 2rem;
+        }
+
+        .scrapbook-container {
+          padding: 20px;
+        }
+
+        .navigation {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn {
+          width: 100%;
+          margin: 5px 0;
+        }
+
+        .page {
+          position: relative;
+          padding-bottom: 60px;
+        }
+
+        .page-indicator {
+          position: sticky;
+          bottom: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 8px;
+          z-index: 100;
+        }
+
+        .page-dot {
+          width: 10px;
+          height: 10px;
+        }
+
+        .music-control {
+          bottom: 20px;
+          right: 20px;
+        }
+
+        .page-tear-content {
+          font-size: 2rem;
+        }
+      }
+
+      /* Envelope Styles */
+      .envelope-container {
+        perspective: 1000px;
+        width: 700px;
+        height: 450px;
+        margin: auto;
+        position: relative;
+      }
+
+      .envelope {
+        position: relative;
+        width: 100%;
+        height: 107%;
+        transform-style: preserve-3d;
+      }
+
+      .card-cover {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(135deg, var(--pink-pastel), var(--gold));
+        color: white;
+        font-family: "Dancing Script", cursive;
+        font-size: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        border-radius: 15px 15px 0 0;
+        box-shadow: 0 10px 30px var(--shadow);
+        transform-origin: top;
+        transition: transform 1s ease-in-out;
+        z-index: 3;
+        clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+      }
+
+      .card-cover.opened {
+        transform: rotateX(180deg);
+      }
+
+      .envelope-body {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--pink-medium),
+          var(--pink-dark)
+        );
+        border-radius: 15px;
+        box-shadow: 0 10px 30px var(--shadow);
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .card-inner {
+        position: absolute;
+        width: 95%;
+        height: 90%;
+        background: var(--white);
+        color: var(--pink-dark);
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px var(--shadow);
+        top: 5%;
+        left: 2.5%;
+        transform: translateY(100%);
+        opacity: 0;
+        transition: all 1.5s ease-in-out 0.5s;
+        z-index: 2;
+      }
+
+      .card-inner.opened {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .card-inner h2 {
+        font-family: "Dancing Script", cursive;
+        margin-bottom: 15px;
+        font-size: 2rem;
+      }
+
+      .card-inner p {
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      .card-inner .close-btn {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--pink-medium);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px var(--shadow);
+        font-family: "Poppins", sans-serif;
+      }
+
+      .card-inner .close-btn:hover {
+        background-color: var(--pink-dark);
+        box-shadow: 0 6px 15px var(--shadow);
+      }
+
+      /* Professional Gallery Styles */
+      .flip-album-container {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+      }
+
+      .gallery-item {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        background: white;
+        border-radius: 10px;
+      }
+
+      .gallery-item.active {
+        opacity: 1;
+        z-index: 10;
+      }
+
+      .gallery-item.next {
+        opacity: 0.3;
+        transform: scale(0.9);
+        z-index: 5;
+      }
+
+      .gallery-item.prev {
+        opacity: 0.3;
+        transform: scale(0.9);
+        z-index: 5;
+      }
+
+      .gallery-item img {
+        max-width: 80%;
+        max-height: 70%;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .caption {
+        margin-top: 15px;
+        font-size: 1rem;
+        color: #7b3e3e;
+        text-align: center;
+        max-width: 80%;
+      }
+
+      .prev,
+      .next {
+        background: #ff9cab;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 0 10px;
+      }
+
+      .prev:hover,
+      .next:hover {
+        background: #d8949e;
+        transform: scale(1.05);
+      }
+
+      /* Photorealistic DSLR Camera Styles - Canon EOS R5 Inspired */
+      .camera-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+        perspective: 1200px;
+      }
+
+      .camera {
+        position: relative;
+        width: 400px;
+        height: 250px;
+        transform-style: preserve-3d;
+        transform: rotateX(0deg) rotateY(0deg);
+        transition: transform 0.5s ease;
+        cursor: pointer;
+      }
+
+      .camera:hover {
+        transform: scale(1.05);
+      }
+
+      /* Main Body - Matte Black Plastic */
+      .camera-body {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          145deg,
+          #2a2a2a 0%,
+          #1a1a1a 20%,
+          #0f0f0f 50%,
+          #1a1a1a 80%,
+          #2a2a2a 100%
+        );
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+        border: 1px solid #333;
+      }
+
+      /* Body Texture */
+      .camera-body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px
+          );
+        background-size: 30px 30px;
+        border-radius: 15px;
+        pointer-events: none;
+      }
+
+      /* Top Panel - Brushed Aluminum */
+      .top-panel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(
+          90deg,
+          #4a4a4a 0%,
+          #6a6a6a 25%,
+          #8a8a8a 50%,
+          #6a6a6a 75%,
+          #4a4a4a 100%
+        );
+        background-image: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 1px,
+          rgba(255, 255, 255, 0.1) 1px,
+          rgba(255, 255, 255, 0.1) 2px
+        );
+        border-radius: 15px 15px 0 0;
+        border-bottom: 1px solid #333;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      }
+
+      /* Hot Shoe */
+      .hot-shoe {
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 12px;
+        background: linear-gradient(90deg, #222, #444, #222);
+        border-radius: 2px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+
+      /* LCD Screen */
+      .lcd-screen {
+        position: absolute;
+        top: 70px;
+        left: 20px;
+        width: 120px;
+        height: 80px;
+        background: linear-gradient(145deg, #0a0a0a 0%, #000 50%, #0a0a0a 100%);
+        border: 2px solid #333;
+        border-radius: 5px;
+        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8),
+          0 0 10px rgba(0, 100, 255, 0.3);
+        overflow: hidden;
+      }
+
+      .screen-glass {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 20%,
+          transparent 80%,
+          rgba(255, 255, 255, 0.05) 100%
+        );
+        border-radius: 3px;
+      }
+
+      .screen-content {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        background: #001122;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden; /* biar gambar tidak keluar area layar */
+      }
+
+      .screen-content img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* gambar memenuhi area tapi tetap proporsional */
+        border-radius: 4px;
+      }
+
+      /* Mode Dial */
+      .mode-dial {
+        position: absolute;
+        top: 15px;
+        right: 30px;
+        width: 35px;
+        height: 35px;
+        background: linear-gradient(145deg, #666, #999, #666);
+        border-radius: 50%;
+        border: 2px solid #333;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+      }
+
+      .dial-markings {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 0deg,
+          #333 0deg,
+          #333 45deg,
+          #666 45deg,
+          #666 90deg,
+          #333 90deg,
+          #333 135deg,
+          #666 135deg,
+          #666 180deg,
+          #333 180deg,
+          #333 225deg,
+          #666 225deg,
+          #666 270deg,
+          #333 270deg,
+          #333 315deg,
+          #666 315deg,
+          #666 360deg
+        );
+      }
+
+      /* Control Buttons */
+      .control-btn {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(145deg, #444, #666, #444);
+        border: 1px solid #333;
+        border-radius: 3px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .control-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+
+      .control-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 0 0 rgba(0, 0, 0, 0.5);
+      }
+
+      .btn-1 {
+        top: 7px;
+        left: 40px;
+      }
+      .btn-2 {
+        top: 7px;
+        left: 67px;
+      }
+      .btn-3 {
+        top: 33px;
+        left: 39px;
+      }
+
+      /* Lens Mount */
+      .lens-mount {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(145deg, #222, #000, #222);
+        border: 3px solid #111;
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.8),
+          inset 0 0 20px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Lens */
+      .lens {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 2px solid #333;
+        overflow: hidden;
+        /* Layered radial-gradient for glass depth effect */
+        background: radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(220, 230, 255, 0.7) 20%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(180, 200, 255, 0.6) 0%,
+            rgba(100, 150, 220, 0.4) 30%,
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at 50% 50%,
+            rgba(150, 180, 255, 0.5) 0%,
+            rgba(50, 100, 200, 0.3) 40%,
+            transparent 70%
+          ),
+          radial-gradient(
+            circle at 70% 30%,
+            rgba(200, 220, 255, 0.4) 0%,
+            rgba(80, 120, 200, 0.2) 50%,
+            transparent 80%
+          ),
+          radial-gradient(
+            circle,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 0.6) 40%,
+            rgba(0, 0, 0, 0.2) 70%,
+            transparent 90%
+          );
+        /* Diagonal white transparent highlight as light reflection */
+        background-image: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.5) 0%,
+            rgba(255, 255, 255, 0.2) 20%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(220, 230, 255, 0.7) 20%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(180, 200, 255, 0.6) 0%,
+            rgba(100, 150, 220, 0.4) 30%,
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at 50% 50%,
+            rgba(150, 180, 255, 0.5) 0%,
+            rgba(50, 100, 200, 0.3) 40%,
+            transparent 70%
+          ),
+          radial-gradient(
+            circle at 70% 30%,
+            rgba(200, 220, 255, 0.4) 0%,
+            rgba(80, 120, 200, 0.2) 50%,
+            transparent 80%
+          ),
+          radial-gradient(
+            circle,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 0.6) 40%,
+            rgba(0, 0, 0, 0.2) 70%,
+            transparent 90%
+          );
+        /* Black inner shadow on lens edges for depth */
+        box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9),
+          inset 0 0 15px rgba(0, 0, 0, 0.7), 0 0 20px rgba(150, 100, 255, 0.6),
+          0 0 40px rgba(120, 80, 200, 0.4);
+      }
+
+      .lens::before {
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 1),
+          rgba(255, 255, 255, 0.8),
+          transparent
+        );
+        border-radius: 50%;
+        /* Small round reflection with slow moving animation */
+        animation: lens-reflection 6s ease-in-out infinite;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+      }
+
+      @keyframes lens-reflection {
+        0%,
+        100% {
+          top: 12px;
+          left: 12px;
+          opacity: 0.9;
+          transform: scale(1);
+        }
+        25% {
+          top: 18px;
+          left: 28px;
+          opacity: 1;
+          transform: scale(1.1);
+        }
+        50% {
+          top: 40px;
+          left: 48px;
+          opacity: 0.7;
+          transform: scale(0.9);
+        }
+        75% {
+          top: 28px;
+          left: 18px;
+          opacity: 0.95;
+          transform: scale(1.05);
+        }
+      }
+
+      /* Lens Hood - Petal Shaped */
+      .lens-hood {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 110px;
+        height: 110px;
+        /* Corrected petal-shaped clip-path for symmetric 4 curved petals */
+        clip-path: polygon(
+          50% 0%,
+          /* top center */ 75% 15%,
+          /* top-right petal start */ 90% 35%,
+          /* top-right petal tip */ 75% 55%,
+          /* top-right petal end */ 50% 75%,
+          /* right center */ 25% 55%,
+          /* bottom-right petal start */ 10% 35%,
+          /* bottom-right petal tip */ 25% 15%,
+          /* bottom-right petal end */ 50% 0%,
+          /* top center (close right half) */ 25% 15%,
+          /* top-left petal start (symmetric) */ 10% 35%,
+          /* top-left petal tip */ 25% 55%,
+          /* top-left petal end */ 50% 75%,
+          /* left center (symmetric) */ 75% 55%,
+          /* bottom-left petal start */ 90% 35%,
+          /* bottom-left petal tip */ 75% 15%
+            /* bottom-left petal end, close to top */
+        );
+        /* Matte black ABS plastic texture */
+        background: radial-gradient(
+            circle at 30% 30%,
+            rgba(255, 255, 255, 0.05) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 70% 70%,
+            rgba(255, 255, 255, 0.03) 0%,
+            transparent 45%
+          ),
+          linear-gradient(
+            145deg,
+            #1a1a1a 0%,
+            #0a0a0a 20%,
+            #000000 50%,
+            #0a0a0a 80%,
+            #1a1a1a 100%
+          );
+        /* Granular surface finish with micro-scratches */
+        background-image: radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 255, 255, 0.02) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(255, 255, 255, 0.01) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px
+          ),
+          radial-gradient(
+            circle at 25% 75%,
+            rgba(255, 255, 255, 0.04) 2px,
+            transparent 2px
+          ),
+          radial-gradient(
+            circle at 75% 25%,
+            rgba(255, 255, 255, 0.02) 1px,
+            transparent 1px
+          );
+        background-size: 10px 10px, 15px 15px, 20px 20px, 25px 25px, 30px 30px;
+        /* 3D depth and thickness */
+        box-shadow:
+          /* Inner hollow effect */ inset 0 0 20px
+            rgba(0, 0, 0, 0.9),
+          inset 0 0 10px rgba(0, 0, 0, 0.7), inset 0 0 5px rgba(0, 0, 0, 0.5),
+          /* Outer separation */ 0 5px 15px rgba(0, 0, 0, 0.6),
+          0 10px 30px rgba(0, 0, 0, 0.4),
+          /* Rim lighting from top-left */ inset -2px -2px 5px
+            rgba(255, 255, 255, 0.1),
+          inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+        /* Thin wall border */
+        border: 2px solid #111;
+        /* Internal flocking - darker interior */
+        background-blend-mode: multiply;
+        /* Smooth transitions */
+        transition: all 0.3s ease;
+      }
+
+      /* Embossed CANON logo on one petal */
+      .lens-hood::before {
+        content: "CANON";
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%) rotate(-45deg);
+        color: #ffffff;
+        font-size: 8px;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        text-shadow: 1px 1px 0px #000, -1px -1px 0px #333, 1px -1px 0px #000,
+          -1px 1px 0px #333, 0px 1px 0px #000, 0px -1px 0px #333,
+          1px 0px 0px #000, -1px 0px 0px #333;
+        z-index: 1;
+      }
+
+      /* Red alignment dot near mounting area */
+      .lens-hood::after {
+        content: "";
+        position: absolute;
+        bottom: 10%;
+        right: 20%;
+        width: 4px;
+        height: 4px;
+        background: radial-gradient(circle, #ff0000, #cc0000);
+        border-radius: 50%;
+        box-shadow: 0 0 3px rgba(255, 0, 0, 0.5);
+        z-index: 1;
+      }
+
+      /* Bayonet mount details */
+      .lens-hood .bayonet-mount {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 10px;
+        background: linear-gradient(90deg, #222, #444, #222);
+        border-radius: 5px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        /* Locking notch */
+        background-image: linear-gradient(
+          90deg,
+          transparent 20%,
+          #000 20%,
+          #000 30%,
+          transparent 30%
+        );
+      }
+
+      /* Internal ribbing for structural support */
+      .lens-hood .internal-ribbing {
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        width: 60%;
+        height: 60%;
+        background: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 0, 0, 0.3) 2px,
+          rgba(0, 0, 0, 0.3) 4px
+        );
+        border-radius: 50%;
+        opacity: 0.5;
+      }
+
+      /* EW-65C model number near mounting area */
+      .lens-hood .model-number {
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #666;
+        font-size: 5px;
+        font-family: Arial, sans-serif;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+      }
+
+      /* Grip */
+      .grip {
+        position: absolute;
+        right: -20px;
+        top: 60px;
+        bottom: 20px;
+        width: 25px;
+        background: linear-gradient(
+          145deg,
+          #2a2a2a 0%,
+          #1a1a1a 50%,
+          #2a2a2a 100%
+        );
+        border-radius: 0 10px 10px 0;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5),
+          inset 1px 0 0 rgba(255, 255, 255, 0.1);
+        border-right: 1px solid #333;
+      }
+
+      .grip-texture {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 2px,
+          rgba(255, 255, 255, 0.05) 2px,
+          rgba(255, 255, 255, 0.05) 4px
+        );
+        border-radius: 0 10px 10px 0;
+      }
+
+      /* Brand Engraving */
+      .brand-engraving {
+        position: absolute;
+        top: 20px;
+        left: 170px;
+        color: #666;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+
+      /* Shutter Button */
+      .shutter-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 25px;
+        height: 25px;
+        background: linear-gradient(145deg, #222, #444, #222);
+        border: 2px solid #111;
+        border-radius: 50%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        z-index: 10;
+      }
+
+      .shutter-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6),
+          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      }
+
+      .shutter-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), inset 0 0 0 rgba(0, 0, 0, 0.5);
+      }
+
+      .shutter-btn::before {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        background: radial-gradient(circle, #666, #333);
+        border-radius: 50%;
+        border: 1px solid #222;
+      }
+
+      /* Screw Holes */
+      .screw-hole {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: radial-gradient(circle, #333, #000);
+        border-radius: 50%;
+        box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.8);
+      }
+
+      .screw-1 {
+        top: 10px;
+        left: 10px;
+      }
+      .screw-2 {
+        top: 10px;
+        right: 10px;
+      }
+      .screw-3 {
+        bottom: 10px;
+        left: 10px;
+      }
+      .screw-4 {
+        bottom: 10px;
+        right: 10px;
+      }
+
+      /* Port Covers */
+      .port-cover {
+        position: absolute;
+        bottom: 15px;
+        left: 30px;
+        width: 25px;
+        height: 8px;
+        background: linear-gradient(145deg, #333, #666, #333);
+        border: 1px solid #222;
+        border-radius: 2px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+
+      .port-cover::before {
+        content: "";
+        position: absolute;
+        top: 1px;
+        bottom: 1px;
+        left: 2px;
+        width: 3px;
+        background: #111;
+        border-radius: 1px;
+      }
+
+      /* Lens Specifications */
+      .lens-specs {
+        position: absolute;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #666;
+        font-size: 6px;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      /* Ambient Lighting Effect */
+      .camera::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        right: -50px;
+        bottom: -50px;
+        background: radial-gradient(
+          circle at 30% 30%,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* Photo Album Styles */
+      .photo-album {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin: 20px 0;
+        max-height: 400px;
+        overflow-y: auto;
+        padding: 10px;
+      }
+
+      .photo-item {
+        position: relative;
+        width: 160px;
+        height: 215px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px var(--shadow);
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        background: white;
+      }
+
+      .photo-item:hover {
+        transform: scale(1.05);
+      }
+
+      .photo-item img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .photo-caption {
+        margin-top: 8px;
+        font-size: 13px;
+        color: #333;
+        text-align: center;
+        font-weight: 500;
+        line-height: 1.2;
+        max-width: 100%;
+        word-wrap: break-word;
+      }
+
+      .delete-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 0, 0, 0.8);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-size: 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      .delete-btn:hover {
+        opacity: 0.9;
+        transform: scale(1.1);
+      }
+
+      /* Photo Preview Modal */
+      .photo-preview-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 209, 220, 0.8);
+        backdrop-filter: blur(5px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        cursor: pointer;
+      }
+
+      .photo-preview-modal img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(255, 133, 161, 0.3);
+        border: 5px solid var(--white);
+        transition: transform 0.3s ease;
+      }
+
+      .photo-preview-modal img:hover {
+        transform: scale(1.02);
+      }
+
+      /* Frame Styles */
+      .frame-heart {
+        background: linear-gradient(45deg, #ffb3ba, #ffdfba);
+        border: 4px solid #ffb3ba;
+        border-radius: 50%;
+        padding: 5px;
+      }
+
+      .frame-heart::before {
+        content: "💖";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 16px;
+      }
+
+      .frame-star {
+        background: linear-gradient(45deg, #bae1ff, #e8f4fd);
+        border: 4px solid #bae1ff;
+        border-radius: 15px;
+        padding: 5px;
+      }
+
+      .frame-star::before {
+        content: "⭐";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 16px;
+      }
+
+      .frame-flower {
+        background: linear-gradient(45deg, #ffd1dc, #ffe4e1);
+        border: 4px solid #ffd1dc;
+        border-radius: 20px;
+        padding: 5px;
+      }
+
+      .frame-flower::before {
+        content: "🌸";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 16px;
+      }
+
+      .frame-cloud {
+        background: linear-gradient(45deg, #e8f4fd, #bae1ff);
+        border: 4px solid #e8f4fd;
+        border-radius: 50px 20px 50px 20px;
+        padding: 5px;
+      }
+
+      .frame-cloud::before {
+        content: "☁️";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 16px;
+      }
+
+      .frame-bear {
+        background: linear-gradient(45deg, #ffdfba, #ffb3ba);
+        border: 4px solid #ffdfba;
+        border-radius: 25px;
+        padding: 5px;
+      }
+
+      .frame-bear::before {
+        content: "🐻";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 16px;
+      }
+
+      .frame-butterfly {
+        background: linear-gradient(45deg, #bae1ff, #ffd1dc);
+        border: 4px solid #bae1ff;
+        border-radius: 30px 10px 30px 10px;
+        padding: 5px;
+      }
+
+      .frame-butterfly::before {
+        content: "🦋";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 16px;
+      }
+
+      .frame-unicorn {
+        background: linear-gradient(45deg, #e8f4fd, #ffdfba);
+        border: 4px solid #e8f4fd;
+        border-radius: 40px 10px 40px 10px;
+        padding: 5px;
+      }
+
+      .frame-unicorn::before {
+        content: "🦄";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 16px;
+      }
+
+      .frame-candy {
+        background: linear-gradient(45deg, #ffd1dc, #bae1ff);
+        border: 4px solid #ffd1dc;
+        border-radius: 10px;
+        padding: 5px;
+      }
+
+      .frame-candy::before {
+        content: "🍬";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 16px;
+      }
+
+      .frame-polaroid {
+        background: white;
+        border: 12px solid white;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        position: relative;
+      }
+
+      .frame-polaroid::before {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: #ddd;
+        border-radius: 2px;
+      }
+
+      /* Flash Effect */
+      .flash-effect {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        z-index: 9999;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* Photo Emergence Animation */
+      .photo-emerging {
+        position: fixed;
+        transform-origin: center;
+        z-index: 9998;
+        pointer-events: none;
+      }
+
+      @keyframes emergeFromCamera {
+        0% {
+          transform: scale(0.1) translateY(0);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1) translateY(250px);
+          opacity: 1;
+        }
+      }
+
+      /* Photo Limit Popup Styles */
+      .photo-limit-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff9fb;
+        border: 2px solid #ffd1dc;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(255, 209, 220, 0.4),
+          0 0 20px rgba(255, 133, 161, 0.2);
+        padding: 30px;
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.2rem;
+        color: #ff85a1;
+        z-index: 10000;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        max-width: 90%;
+        width: 300px;
+      }
+
+      .photo-limit-popup.show {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .photo-limit-popup .message {
+        margin: 0;
+        font-weight: 500;
+        line-height: 1.4;
+      }
+
+      /* Duplicate Photo Popup Styles */
+      .duplicate-photo-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        border: 2px solid #ffa8ba;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(255, 168, 186, 0.4),
+          0 0 20px rgba(255, 133, 161, 0.2);
+        padding: 30px;
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.2rem;
+        color: #ff85a1;
+        z-index: 10000;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        max-width: 90%;
+        width: 300px;
+      }
+
+      .duplicate-photo-popup.show {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .duplicate-photo-popup .message {
+        margin: 0;
+        font-weight: 500;
+        line-height: 1.4;
+      }
+
+      @media (max-width: 768px) {
+        .photo-limit-popup {
+          padding: 20px;
+          font-size: 1rem;
+          width: 250px;
+        }
+
+        .duplicate-photo-popup {
+          padding: 20px;
+          font-size: 1rem;
+          width: 250px;
+        }
+      }
+      /* Simple Flying Hearts */
+.flying-heart-fixed {
+    position: fixed !important;
+    font-size: 20px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: heartFly 2s ease-out forwards;
+}
+
+@keyframes heartFly {
+    0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 0;
+    }
+    20% {
+        transform: translate(0, -30px) scale(1.2);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(0, -80px) scale(1);
+        opacity: 0.8;
+    }
+    80% {
+        transform: translate(0, -150px) scale(0.7);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translate(0, -200px) scale(0.4);
+        opacity: 0;
+    }
+}
+
+/* Music Player Styles */
+.music-player-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  font-family: "Poppins", sans-serif;
+}
+
+.music-toggle {
+  background: var(--pink-medium);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+  background: var(--pink-dark);
+  transform: scale(1.05);
+}
+
+.music-panel {
+  display: none;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 8px 32px rgba(255, 209, 220, 0.3);
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  width: 280px;
+  border: 2px solid rgba(255, 209, 220, 0.3);
+}
+
+.music-panel.active {
+  display: block;
+}
+
+.song-info {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.song-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--pink-dark);
+  margin-bottom: 5px;
+}
+
+.song-artist {
+  font-size: 14px;
+  color: #666;
+}
+
+.controls {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.play-pause {
+  background: linear-gradient(135deg, var(--pink-medium), var(--pink-dark));
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 133, 161, 0.3);
+}
+
+.play-pause:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 133, 161, 0.5);
+}
+
+.progress-container {
+  margin-bottom: 15px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 209, 220, 0.3);
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink-medium), var(--pink-dark));
+  border-radius: 4px;
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
+.time-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.volume-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.volume-icon {
+  font-size: 18px;
+}
+
+.volume-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 209, 220, 0.3);
+  outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--pink-medium);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(255, 133, 161, 0.3);
+}
+
+.decoration {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.emoji-animation {
+  position: fixed;
+  font-size: 24px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: emojiFloat 4s ease-out forwards;
+}
+
+@keyframes emojiFloat {
+  0% {
+    transform: scale(0.5) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2) translateY(-50px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.8) translateY(-100px);
+    opacity: 0;
+  }
+}
+.ending-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 50%; /* JARAK ANTAR TOMBOL */
+  margin-top: 20px;
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- Paper Tear Transition -->
+    <div class="page-tear" id="pageTear">
+      <div class="page-tear-content" id="pageTearText">
+        Selamat Ulang Tahun ke-18, Sayangku! 💖
+      </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Background Music Placeholder -->
+    <audio id="audioPlayer" src="Music.mp3"></audio>
+
+    <!-- Page Indicator -->
+    <div class="page-indicator" id="pageIndicator">
+      <div class="page-dot active" data-page="index"></div>
+      <div class="page-dot" data-page="home"></div>
+      <div class="page-dot" data-page="gallery"></div>
+      <div class="page-dot" data-page="video"></div>
+      <div class="page-dot" data-page="letter"></div>
+      <div class="page-dot" data-page="fun"></div>
+      <div class="page-dot" data-page="ending"></div>
+    </div>
+
+    <!-- Music Player Sidebar -->
+    <div class="music-player-container">
+      <button class="music-toggle" id="musicToggle">🎵</button>
+      <div class="music-panel" id="musicPanel">
+        <div class="song-info">
+          <div class="song-title">Lagu Kamu ✨</div>
+          <div class="song-artist">Safina Sarah Zaheera 🐻</div>
+        </div>
+        <div class="controls">
+          <button class="play-pause" id="playPauseBtn">▶️</button>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar">
+            <div class="progress" id="progress"></div>
+          </div>
+          <div class="time-info">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+        <div class="volume-container">
+          <span class="volume-icon">🔊</span>
+          <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+        </div>
+        <div class="decoration">🎀✨🎶</div>
+      </div>
+    </div>
+
+
+
+    <!-- Index Page -->
+    <div id="index" class="page active">
+      <div class="scrapbook-container">
+        <h1>Safina Sarah Zaheera</h1>
+        <p>hari ini adalah hari paling special buat kamu sayang ❤️</p>
+
+        <button class="btn" id="enterBtn">Selanjutnya</button>
+      </div>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home" class="page">
+      <div class="envelope-container" id="envelopeContainer">
+        <div class="envelope" id="envelope">
+          <div class="card-cover" id="envelopeFlap">
+            <h2>SELAMAT ULANG TAHUN!</h2>
+            <p>Sayang Safina 💖</p>
+          </div>
+          <div class="envelope-body" id="envelopeBody">
+            <div class="card-inner" id="letterContent">
+              <h2>Selamat Ulang Tahun Sayangku 💕</h2>
+              <p>
+                Di hari yang istimewa ini, aku ingin berterima kasih karena kamu
+                selalu hadir dan memberi warna dalam hidupku.
+              </p>
+              <p>
+                Terima kasih untuk setiap tawa, perhatian, dan kehangatan yang
+                kamu berikan.
+              </p>
+              <p>
+                Aku berdoa semoga setiap langkahmu dipenuhi kebahagiaan, dan
+                semoga semua impianmu jadi nyata.
+              </p>
+              <p>
+                Kamu berharga, kamu disayangi, dan kamu layak mendapatkan dunia
+                yang indah.
+              </p>
+              <p>
+                Semoga hari ini seindah senyummu, dan semoga cinta serta
+                kebahagiaan selalu menyertaimu. Jangan pernah lupa betapa
+                spesialnya dirimu bagiku. 💕
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button class="btn" id="backToIndex">Kembali</button>
+        <button class="btn" id="toGallery">Lihat Galeri</button>
+      </div>
+    </div>
+
+    <!-- Gallery Page -->
+    <div id="gallery" class="page">
+      <div class="scrapbook-container">
+        <h2>Galeri Kita</h2>
+        <p>Momen-momen yang berharga dalam hidupku</p>
+
+        <div class="camera-container">
+          <div class="camera">
+            <!-- Main Body -->
+            <div class="camera-body">
+              <!-- Top Panel -->
+              <div class="top-panel">
+                <!-- Hot Shoe -->
+                <div class="hot-shoe"></div>
+                <!-- Mode Dial -->
+                <div class="mode-dial">
+                  <div class="dial-markings"></div>
+                </div>
+                <!-- Control Buttons -->
+                <div class="control-btn btn-1"></div>
+                <div class="control-btn btn-2"></div>
+                <div class="control-btn btn-3"></div>
+                <!-- Shutter Button -->
+                <button class="shutter-btn" id="shutterBtn"></button>
+              </div>
+
+              <!-- LCD Screen -->
+              <div class="lcd-screen">
+                <div class="screen-content">
+                  <img src="YOU AND ME2.jpg" alt="Foto tampilan" />
+                </div>
+              </div>
+
+              <!-- Lens Mount -->
+              <div class="lens-mount">
+                <!-- Lens -->
+                <div class="lens">
+                  <!-- Lens Hood -->
+                  <div class="lens-hood"></div>
+                </div>
+              </div>
+
+              <!-- Grip -->
+              <div class="grip">
+                <div class="grip-texture"></div>
+              </div>
+
+              <!-- Brand Engraving -->
+              <div class="brand-engraving">CANON</div>
+
+              <!-- Screw Holes -->
+              <div class="screw-hole screw-1"></div>
+              <div class="screw-hole screw-2"></div>
+              <div class="screw-hole screw-3"></div>
+              <div class="screw-hole screw-4"></div>
+
+              <!-- Port Covers -->
+              <div class="port-cover"></div>
+
+              <!-- Lens Specifications -->
+              <div class="lens-specs">RF 24-70mm f/2.8L IS USM</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="photo-album" id="photoAlbum">
+          <!-- Photos will be added here -->
+        </div>
+
+        <div class="navigation">
+          <button class="btn" id="backToHome">Kembali</button>
+          <button class="btn" id="toVideo">Lihat Video</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Page -->
+    <div id="video" class="page">
+      <div class="scrapbook-container">
+        <h2>Video Kenangan</h2>
+        <p>Video spesial untuk hari ulang tahunmu</p>
+
+        <div class="instagram-post">
+          <div class="post-header">
+            <img src="YOU AND ME2.jpg" alt="Profile" class="profile-pic" />
+            <div class="username">You And Me</div>
+            <button class="menu-btn">⋯</button>
+          </div>
+
+          <div class="post-media">
+            <video
+              controls
+              poster="https://via.placeholder.com/600x400/ffd1dc/ffffff?text=Video+Spesial+Untukmu"
+            >
+              <source src="video-fix.mp4" type="video/mp4" />
+              Browser Anda tidak mendukung elemen video.
+            </video>
+          </div>
+
+          <div class="post-actions">
+            <button class="action-btn like-btn" id="likeBtn">❤️</button>
+            <button class="action-btn comment-btn">💬</button>
+            <button class="action-btn">📤</button>
+          </div>
+
+          <div class="post-caption">
+            <strong>Safina Sarah Zaheera</strong> Video spesial untuk hari ulang
+            tahunmu, Semoga kamu suka ya sayang 💖
+          </div>
+
+          <div class="post-comments">
+            <div class="comment">
+              <strong>Stranger things😜</strong> Cumiiii... Pi bes'day yak semoga kk sehat selalu, semua harapn dan cita² kaka di kabulkan oleh allah SWT... Jadi ank yg baik syg sama papa, mama juga jdi kepala suku yg baik dan contoh buat adek² tercintah🤣... Lebih displin lagi ga teledor.. Bahagia sukses dunia akherat... Oh iya jgn suka anyun mele🤪😜sama rajin mandi... Hahaha😝😝 love u to the moon n back😘😘😘🎉🥳🥳
+            </div>
+            <div class="comment">
+              <strong>pacar mingyu</strong> selamat ulang tahun umik, ALWAYS BE HEALTHY AND HAPPY ON YOUR COMING OF AGE, be happy!!! semoga hal baik selalu datang di dalam kehidupan umik yappp 
+            </div>
+            <div class="comment">
+              <strong>mbung</strong> Dunia memang suka bercanda dan hidup hanya sementara, selamat hari keluar kandungan buat otak ku. Semoga sehat selalu, panjang umur dan happy terus yaa🫰🏻semangat terus belajarnya sar, gue tau lu mau banget masuk kampus impian lu gue doain lu bisa keterima aamiin pokoknya yang terbaik buat lu tak🕺🏻
+            </div>
+            <div class="comment">
+              <strong>l♡ve : piw</strong> happy bdayyyy sarahh!! 🩷🩷
+semoga hari ini jadi hari paling lucu, paling shining shimering splendiddd, dan paling sparkling buat kamu ✨
+semoga semua wish kamu terkabul satu-satu, dan hidup kamu penuh hal-hal manis kayak cupcake vanilla 🍰🏃🏻‍♀️
+stay cute, stay shining, dan jangan lupa senyum biar dunia ikut gemes sama kamu 🤏🏻💗
+enjoy your day, princess sarahh!! 🎀👑 
+            </div>
+            <div class="comment">
+              <strong>97</strong> Happy bornday, Sarah! Hope your day is super fun, full of love, happiness, and all the good things.
+            </div>
+            <div class="comment">
+              <strong>Nerisa</strong> happy birthday to my beautiful best friend sarah,saruy,safina zaheera❤️, the girl that never judged me, the girl that was by my side in my ups and downs, the girl who took the time to understand me even when she was strugglin herself, the girl that never fails to make me smile when i'm down, my other half, and my soulmate. I'm só glad that i met you sarr in a generation Full of fake people, but she shwoed me what a real friend is. She made me see the sun when I only saw the rain, she deserves nothing but happiness and goodness. I love her to the moon and back. I'm so happy to the be able to call her my bestie friend in this whole world. LOVE YOU SO MUCH 💗
+            </div>
+            <div class="comment">
+              <strong>Sabil</strong> Selamat ulang tahun Kaka semoga panjang umur ,sehat dan KK jangan galak lagi 🎉
+            </div>
+            <div class="comment">
+              <strong>Reza</strong> Selamat ulang tahun kaka semoga panjang umur dan semoga kaka ga suka teriak2 lagi.
+            </div>
+            <div class="comment">
+              <strong>mon Cherie</strong> Happy birthday, si bocil favoritku! 🎉🎂
+
+Semoga umur baru ini bikin kamu makin bahagia dan makin gemes walau kamu udah cukup bikin aku nggak bisa ga sayang setiap hari 😅
+Semoga hidupmu penuh hal manis kayak senyum kamu, dan semoga aku bisa jadi bagian dari hal-hal manis itu.
+
+Tetap jadi diri kamu yang lucu, chaos dikit, tapi selalu berhasil bikin aku sayang tanpa alasan.
+Have the sweetest birthday, sayang. Aku di sini buat kamu, hari ini dan seterusnya ✨
+            </div>
+          </div>
+        </div>
+
+        <div class="navigation">
+          <button class="btn" id="backToGallery">Kembali</button>
+          <button class="btn" id="toLetter">Surat Special</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Letter Page -->
+    <div id="letter" class="page">
+      <div class="scrapbook-container">
+        <h2>Surat Cinta Untukmu</h2>
+        <p>pesan yang ingin kusampaikan untukmu di hari ulang tahunmu.</p>
+
+        <div class="letter-content">
+          <p id="typed-text"></p>
+          <span class="typing-cursor"></span>
+        </div>
+
+        <div class="navigation">
+          <button class="btn" id="backToVideo">Kembali</button>
+          <button class="btn" id="toFun">Halaman Seru</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fun Page -->
+    <div id="fun" class="page">
+      <div class="scrapbook-container">
+        <h2>Halaman Seru</h2>
+        <p>Klik tombol di bawah ini untuk menunjukkan perasaanmu!</p>
+
+        <button class="fun-button" id="loveButton">
+          Klik kalau kamu sayang aku!
+        </button>
+
+        <div class="love-message" id="loveMessage">
+          Aku juga sayang kamu! 💖💖💖
+        </div>
+
+        <button class="btn" id="backToLetter">Kembali</button>
+        <button class="btn" id="toEnding">Ke Penutup</button>
+      </div>
+    </div>
+
+    <!-- 🧸 Cute Bear Hug Ending Page -->
+    <div id="ending" class="page cute-ending">
+      <div class="scrapbook-container">
+    <div class="bear-hug">
+      <div class="bear-face">
+        <img src="bear2-removebg.png" alt="Cute Bear" style="width: 200px; height: auto;" />
+      </div>
+      <div class="hearts">
+        <span>💖</span>
+        <span>💗</span>
+        <span>💞</span>
+      </div>
+    </div>
+
+        <h2>Peluk Virtual untukmu</h2>
+        <p>Terima kasih sudah jadi bagian paling terbaik dalam hidupku.</p>
+        <p>Semoga hari-harimu selalu diiringi keceriaan, ketulusan cinta, dan rasa nyaman dari kehadiran diriku. 💕</p>
+
+        <div class="ending-buttons">
+          <button class="btn" id="backToFun">Kembali</button>
+          <button class="btn" id="restart">Mulai Ulang</button>
+
+
+
+    <script>
+      // Page Navigation with Enhanced Transitions
+      const pages = document.querySelectorAll(".page");
+      const pageDots = document.querySelectorAll(".page-dot");
+      let currentPage = "index";
+      let loveClicked = false;
+      let moveButton;
+
+      // Love letter text
+      const loveLetter = `Sayangku yang cantik,
+
+Nggak kerasa kamu udah 18 aja ciii!
+Kamu tuh keren banget, tiap kali aku lagi bete, entah gimana caranya kamu selalu sukses bikin aku nggak ngambek dan langsung kangen lagi 😭💗 
+
+Makasih ya udah jadi orang yang paling nyenengin buat aku. Kamu tuh kayak matahari pagi hangat, cerah, dan somehow selalu bikin hariku lebih baik ☀️💖
+
+Aku bener-bener bersyukur punya kamu di hidupku. Kadang aku suka mikir, kok bisa ya seseorang kayak kamu ada di dunia ini lucu iya, baik iya, ngeselin juga iya, tapi semuanya tetap bikin aku jatuh cinta tiap hari 😆💞
+
+Di usia 18 ini, aku cuma pengen kamu tahu satu hal: kamu hebat banget. Jangan pernah ragu sama diri kamu sendiri, karena aku selalu percaya kamu bisa ngelakuin apa pun yang kamu mau.
+
+Aku bakal terus dukung kamu, nemenin kamu, dan jadi orang pertama yang selalu nyemangatin dari belakang sambil manja dikit minta peyuk (ya walaupun kamu ga nyaman, maaf yaa hehehe 😅).
+
+Semoga tahun ini penuh tawa, kejutan lucu, hal-hal seru, dan banyak hal kecil yang bikin kamu bahagia. Kamu pantas dapet semuanya 💕
+
+Selamat ulang tahun, sayangku Safina Sarah Zaheera 🩷
+Makasih udah jadi bagian terbaik dari hidupku. Aku sayang kamu, lebih dari yang bisa dijelasin pake kata-kata 😚💫`;
+
+      // Page titles for transitions
+      const pageTitles = {
+        index: "Selamat Datang",
+        home: "Happy 18th Birthday!",
+        gallery: "Galeri Kita",
+        video: "Video Spesial",
+        letter: "Surat Special",
+        fun: "Halaman Seru",
+        ending: "Terima Kasih Sayangku",
+      };
+
+      function showPage(pageId) {
+        // Show paper tear transition for ALL page transitions
+        showPaperTearTransition(pageId, () => {
+          performPageTransition(pageId);
+        });
+      }
+
+      function performPageTransition(pageId) {
+        // Reset button status - enable all navigation buttons
+        document.querySelectorAll(".btn").forEach((btn) => {
+          btn.disabled = false;
+        });
+
+        pages.forEach((page) => {
+          page.classList.remove("active");
+        });
+        document.getElementById(pageId).classList.add("active");
+
+        pageDots.forEach((dot) => {
+          dot.classList.remove("active");
+          if (dot.dataset.page === pageId) {
+            dot.classList.add("active");
+          }
+        });
+
+        currentPage = pageId;
+
+        // Trigger typing effect for love letter when letter page is shown
+        if (pageId === "letter") {
+          typeWriter(document.getElementById("typed-text"), loveLetter, 30);
+        }
+
+        // Handle moving button for fun page
+        if (currentPage === "fun") {
+          if (!loveClicked) {
+            startMovingButton();
+          } else {
+            stopMovingButton();
+          }
+        }
+      }
+
+      // Enhanced Paper Tear Transition
+      function showPaperTearTransition(pageId, callback) {
+        const pageTear = document.getElementById("pageTear");
+        const pageTearText = document.getElementById("pageTearText");
+
+        // Set transition text based on destination page
+        if (pageTitles[pageId]) {
+          pageTearText.textContent = pageTitles[pageId] + " 💖";
+        }
+
+        pageTear.classList.add("active");
+
+        setTimeout(() => {
+          pageTear.classList.remove("active");
+          if (callback) callback();
+        }, 1200);
+      }
+
+      // Navigation Buttons - ALL with transitions
+      document
+        .getElementById("enterBtn")
+        .addEventListener("click", () => showPage("home"));
+      document
+        .getElementById("backToIndex")
+        .addEventListener("click", () => showPage("index"));
+      document.getElementById("toGallery").addEventListener("click", () => {
+        const envelopeFlap = document.getElementById("envelopeFlap");
+        const letterContent = document.getElementById("letterContent");
+        const toGalleryBtn = document.getElementById("toGallery");
+
+        if (envelopeFlap.classList.contains("opened")) {
+          // Tutup amplop terlebih dahulu dengan animasi berurutan
+          letterContent.classList.remove("opened");
+          // Nonaktifkan tombol selama transisi
+          toGalleryBtn.disabled = true;
+          // Tunggu card-inner masuk (2s), lalu tutup flap (1s), baru navigasi
+          setTimeout(() => {
+            envelopeFlap.classList.remove("opened");
+            setTimeout(() => {
+              showPage("gallery");
+            }, 1000);
+          }, 2000);
+        } else {
+          // Jika amplop sudah tertutup, langsung pindah ke galeri
+          showPage("gallery");
+        }
+      });
+      document
+        .getElementById("backToHome")
+        .addEventListener("click", () => showPage("home"));
+      document
+        .getElementById("toVideo")
+        .addEventListener("click", () => showPage("video"));
+      document
+        .getElementById("backToGallery")
+        .addEventListener("click", () => showPage("gallery"));
+      document
+        .getElementById("toLetter")
+        .addEventListener("click", () => showPage("letter"));
+      document
+        .getElementById("backToVideo")
+        .addEventListener("click", () => showPage("video"));
+      document
+        .getElementById("toFun")
+        .addEventListener("click", () => showPage("fun"));
+      document
+        .getElementById("backToLetter")
+        .addEventListener("click", () => showPage("letter"));
+
+      // Envelope Open Button
+      // Removed event listener for openEnvelope button since button removed
+
+      // Envelope Close Button
+      // Removed event listener for closeEnvelope button since button removed
+
+      // Envelope body click toggles open/close with sequenced animations
+      document.getElementById("envelopeBody").addEventListener("click", () => {
+        const envelopeFlap = document.getElementById("envelopeFlap");
+        const letterContent = document.getElementById("letterContent");
+        const isOpened = envelopeFlap.classList.contains("opened");
+        if (isOpened) {
+          // Closing: card-inner goes in first, then flap closes
+          letterContent.classList.remove("opened");
+          // Wait for card-inner animation (1.5s transition + 0.5s delay = 2s), then close flap
+          setTimeout(() => {
+            envelopeFlap.classList.remove("opened");
+          }, 2000);
+        } else {
+          // Opening: flap opens first, then card slides out
+          envelopeFlap.classList.add("opened");
+          setTimeout(() => {
+            letterContent.classList.add("opened");
+          }, 500); // Slight delay to sync with CSS transitions
+        }
+      });
+
+      // Event handler khusus untuk tombol toEnding
+      document
+        .getElementById("toEnding")
+        .addEventListener("click", function (e) {
+          // Jika love belum diklik, biarkan fungsi moveButton yang menangani
+          if (!loveClicked) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
+          }
+
+          // Jika love sudah diklik, lanjut ke ending
+          showPage("ending");
+        });
+
+      document
+        .getElementById("backToFun")
+        .addEventListener("click", () => showPage("fun"));
+      document.getElementById("restart").addEventListener("click", () => {
+        localStorage.removeItem("loveClicked");
+        loveClicked = false;
+        // Reset tombol love message
+        document.getElementById("loveMessage").style.display = "none";
+        showPage("index");
+      });
+
+      // Page Dots Navigation - with transitions
+      pageDots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          if (dot.dataset.page !== currentPage) {
+            showPage(dot.dataset.page);
+          }
+        });
+      });
+
+      // IMPROVED Falling Petals Effect - Fixed to fall from top to bottom
+      function createFallingPetals() {
+        const petalTypes = ["petal-1", "petal-2", "petal-3", "petal-4"];
+
+        function createPetal() {
+          const petal = document.createElement("div");
+          const petalType =
+            petalTypes[Math.floor(Math.random() * petalTypes.length)];
+
+          petal.classList.add("petal", petalType);
+
+          // Start from random position at top of screen
+          petal.style.left = Math.random() * 100 + "vw";
+          petal.style.top = "-50px"; // Start above the screen
+
+          // Random animation duration
+          const duration = 8 + Math.random() * 12; // 8-20 seconds
+          petal.style.animationDuration = duration + "s";
+
+          // Random delay
+          const delay = Math.random() * 5;
+          petal.style.animationDelay = delay + "s";
+
+          document.body.appendChild(petal);
+
+          // Remove petal after animation completes
+          setTimeout(() => {
+            if (petal.parentNode) {
+              petal.remove();
+            }
+          }, (duration + delay) * 1000);
+        }
+
+        // Create initial petals
+        for (let i = 0; i < 20; i++) {
+          setTimeout(() => {
+            createPetal();
+          }, i * 300);
+        }
+
+        // Continue creating petals periodically
+        setInterval(() => {
+          createPetal();
+        }, 800);
+      }
+
+      // Sparkle Trail Cursor
+      function createSparkleTrail() {
+        let mouseX = 0;
+        let mouseY = 0;
+        let sparkleTimer;
+
+        document.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+
+          // Clear previous timer
+          if (sparkleTimer) clearTimeout(sparkleTimer);
+
+          // Create new sparkle
+          createSparkle(mouseX, mouseY);
+
+          // Set timer for next sparkle
+          sparkleTimer = setTimeout(() => {
+            createSparkle(mouseX, mouseY);
+          }, 100);
+        });
+
+        // Create sparkles on click
+        document.addEventListener("click", (e) => {
+          for (let i = 0; i < 10; i++) {
+            setTimeout(() => {
+              createSparkle(e.clientX, e.clientY);
+            }, i * 50);
+          }
+        });
+      }
+
+      function createSparkle(x, y) {
+        const sparkle = document.createElement("div");
+        sparkle.classList.add("sparkle");
+
+        // Position the sparkle at cursor
+        sparkle.style.left = x - 5 + "px";
+        sparkle.style.top = y - 5 + "px";
+
+        // Random size
+        const size = 5 + Math.random() * 10;
+        sparkle.style.width = size + "px";
+        sparkle.style.height = size + "px";
+
+        document.body.appendChild(sparkle);
+
+        // Remove sparkle after animation completes
+        setTimeout(() => {
+          sparkle.remove();
+        }, 800);
+      }
+
+      // Typing Effect for Love Letter
+      function typeWriter(element, text, speed = 50) {
+        let i = 0;
+        element.textContent = "";
+
+        function typing() {
+          if (i < text.length) {
+            // Handle new lines by inserting line breaks
+            if (text.charAt(i) === "\n") {
+              element.textContent += "\n";
+            } else {
+              element.textContent += text.charAt(i);
+            }
+            i++;
+            setTimeout(typing, speed);
+          }
+        }
+
+        typing();
+      }
+
+      // Button Moving Functions - FIXED
+      function startMovingButton() {
+        const btn = document.getElementById("toEnding");
+        const container = document.querySelector("#fun .scrapbook-container");
+
+        // Tambah class moving untuk styling khusus
+        btn.classList.add("moving");
+
+        // Reset posisi ke default dulu
+        btn.style.position = "absolute";
+        btn.style.bottom = "20px";
+        btn.style.right = "20px";
+        btn.style.top = "auto";
+        btn.style.left = "auto";
+        btn.style.transition = "all 0.3s ease";
+
+        function moveButton() {
+          const containerRect = container.getBoundingClientRect();
+          const btnRect = btn.getBoundingClientRect();
+          const padding = 20;
+          const maxTop = containerRect.height - btnRect.height - padding * 2;
+          const maxLeft = containerRect.width - btnRect.width - padding * 2;
+
+          // Get the back button to avoid overlap
+          const backBtn = document.getElementById("backToLetter");
+          const backRect = backBtn.getBoundingClientRect();
+
+          let newTop,
+            newLeft,
+            attempts = 0;
+          let validPosition = false;
+
+          do {
+            newTop = Math.random() * maxTop + padding;
+            newLeft = Math.random() * maxLeft + padding;
+            attempts++;
+
+            // Check if position doesn't overlap with back button
+            validPosition = !(
+              newLeft < backRect.right + padding &&
+              newLeft + btnRect.width > backRect.left - padding &&
+              newTop < backRect.bottom + padding &&
+              newTop + btnRect.height > backRect.top - padding
+            );
+
+            // Prevent infinite loop
+            if (attempts > 50) {
+              validPosition = true; // Force accept position
+              break;
+            }
+          } while (!validPosition);
+
+          btn.style.top = newTop + "px";
+          btn.style.left = newLeft + "px";
+          btn.style.bottom = "auto";
+          btn.style.right = "auto";
+        }
+
+        // Hapus event listener lama jika ada
+        if (btn.moveListener) {
+          btn.removeEventListener("click", btn.moveListener);
+        }
+
+        // Buat listener baru - hanya pindah saat diklik
+        btn.moveListener = function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          moveButton();
+        };
+
+        btn.addEventListener("click", btn.moveListener);
+      }
+
+      function stopMovingButton() {
+        const btn = document.getElementById("toEnding");
+
+        // Hapus class moving
+        btn.classList.remove("moving");
+
+        // Clear interval
+        if (btn.moveInterval) {
+          clearInterval(btn.moveInterval);
+          btn.moveInterval = null;
+        }
+
+        // Remove move listener
+        if (btn.moveListener) {
+          btn.removeEventListener("click", btn.moveListener);
+          btn.moveListener = null;
+        }
+
+        // Reset posisi ke normal
+        btn.style.position = "absolute";
+        btn.style.bottom = "20px";
+        btn.style.right = "20px";
+        btn.style.top = "auto";
+        btn.style.left = "auto";
+        btn.style.transition = "all 0.3s ease";
+      }
+
+      // Love Button Interaction
+      document
+        .getElementById("loveButton")
+        .addEventListener("click", function () {
+          const message = document.getElementById("loveMessage");
+          message.style.display = "block";
+
+          loveClicked = true;
+          localStorage.setItem("loveClicked", "true");
+          stopMovingButton();
+
+          // Create heart explosion
+          for (let i = 0; i < 20; i++) {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "💖";
+            heart.style.position = "absolute";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = Math.random() * 100 + "vh";
+            heart.style.animation = "float 3s ease-in-out forwards";
+            document.body.appendChild(heart);
+
+            // Remove heart after animation
+            setTimeout(() => {
+              heart.remove();
+            }, 3000);
+          }
+        });
+
+      // PERBAIKAN MUSIC PLAYER - VOLUME FIXED
+
+      // Elemen DOM
+      const musicToggle = document.getElementById('musicToggle');
+      const musicPanel = document.getElementById('musicPanel');
+      const playPause = document.getElementById('playPauseBtn');
+      const audioPlayer = document.getElementById('audioPlayer');
+      const progressBar = document.getElementById('progressBar');
+      const progress = document.getElementById('progress');
+      const currentTime = document.getElementById('currentTime');
+      const duration = document.getElementById('duration');
+      const volumeSlider = document.getElementById('volumeSlider');
+
+      // Inisialisasi volume default
+      audioPlayer.volume = 0.5;
+      volumeSlider.value = 0.5;
+
+      // Toggle panel musik
+      musicToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          musicPanel.classList.toggle('active');
+      });
+
+      // Format waktu
+      function formatTime(seconds) {
+          if (isNaN(seconds)) return "0:00";
+          const mins = Math.floor(seconds / 60);
+          const secs = Math.floor(seconds % 60);
+          return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      }
+
+      // Update progress bar
+      function updateProgress() {
+          if (audioPlayer.duration && !isNaN(audioPlayer.duration)) {
+              const percent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+              progress.style.width = `${percent}%`;
+              currentTime.textContent = formatTime(audioPlayer.currentTime);
+          }
+      }
+
+      // Progress bar click
+      progressBar.addEventListener('click', (e) => {
+          if (audioPlayer.duration && !isNaN(audioPlayer.duration)) {
+              const progressWidth = progressBar.clientWidth;
+              const clickX = e.offsetX;
+              audioPlayer.currentTime = (clickX / progressWidth) * audioPlayer.duration;
+          }
+      });
+
+      // Update duration ketika metadata loaded
+      audioPlayer.addEventListener('loadedmetadata', () => {
+          duration.textContent = formatTime(audioPlayer.duration);
+      });
+
+      // Play/Pause functionality
+      playPause.addEventListener('click', (e) => {
+          e.stopPropagation();
+
+          if (audioPlayer.paused || audioPlayer.ended) {
+              const playPromise = audioPlayer.play();
+
+              if (playPromise !== undefined) {
+                  playPromise.then(() => {
+                      playPause.innerHTML = '⏸️';
+                      startEmojiAnimation();
+                  }).catch(error => {
+                      console.error("Audio play failed:", error);
+                      // Fallback: show message to user
+                      alert("Mohon klik sekali lagi untuk memutar musik. Browser membutuhkan interaksi user untuk memutar audio.");
+                  });
+              }
+          } else {
+              audioPlayer.pause();
+              playPause.innerHTML = '▶️';
+              stopEmojiAnimation();
+          }
+      });
+
+      // PERBAIKAN VOLUME SLIDER - INI YANG UTAMA
+      volumeSlider.addEventListener('input', (e) => {
+          const volumeValue = parseFloat(e.target.value);
+          audioPlayer.volume = volumeValue;
+
+          // Update volume icon based on level
+          updateVolumeIcon(volumeValue);
+      });
+
+      // Function to update volume icon
+      function updateVolumeIcon(volume) {
+          const volumeIcon = document.querySelector('.volume-icon');
+          if (volume === 0) {
+              volumeIcon.textContent = '🔇';
+          } else if (volume < 0.5) {
+              volumeIcon.textContent = '🔈';
+          } else {
+              volumeIcon.textContent = '🔊';
+          }
+      }
+
+      // Sync volume slider dengan volume audio
+      audioPlayer.addEventListener('volumechange', () => {
+          volumeSlider.value = audioPlayer.volume;
+          updateVolumeIcon(audioPlayer.volume);
+      });
+
+      // Time update
+      audioPlayer.addEventListener('timeupdate', updateProgress);
+
+      // Reset when ended
+      audioPlayer.addEventListener('ended', () => {
+          playPause.innerHTML = '▶️';
+          progress.style.width = '0%';
+          currentTime.textContent = '0:00';
+          stopEmojiAnimation();
+      });
+
+      // Audio error handling
+      audioPlayer.addEventListener('error', (e) => {
+          console.error('Audio error:', e);
+          const errorMessage = document.createElement('div');
+          errorMessage.style.cssText = `
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              background: #ff6b6b;
+              color: white;
+              padding: 20px;
+              border-radius: 10px;
+              z-index: 10000;
+              text-align: center;
+          `;
+          errorMessage.innerHTML = `
+              <p>❌ Tidak dapat memuat file audio</p>
+              <p>Pastikan file "Music.mp3" ada di folder yang sama</p>
+          `;
+          document.body.appendChild(errorMessage);
+
+          setTimeout(() => {
+              if (errorMessage.parentNode) {
+                  errorMessage.remove();
+              }
+          }, 5000);
+      });
+
+      // Emoji animation functions
+      function startEmojiAnimation() {
+          const emojis = ['🎀', '✨', '🎶', '💖', '🌸', '🐻'];
+
+          emojiInterval = setInterval(() => {
+              const emoji = document.createElement('div');
+              emoji.classList.add('emoji-animation');
+              emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+              const playerRect = musicToggle.getBoundingClientRect();
+              const x = playerRect.left + (Math.random() * 60 - 30);
+              const y = playerRect.top + (Math.random() * 60 - 30);
+
+              emoji.style.left = `${x}px`;
+              emoji.style.top = `${y}px`;
+
+              document.body.appendChild(emoji);
+
+              setTimeout(() => {
+                  if (emoji.parentNode) {
+                      emoji.remove();
+                  }
+              }, 4000);
+          }, 800);
+      }
+
+      function stopEmojiAnimation() {
+          if (emojiInterval) {
+              clearInterval(emojiInterval);
+          }
+      }
+
+      // Close panel when clicking outside
+      document.addEventListener('click', (e) => {
+          if (!musicPanel.contains(e.target) && !musicToggle.contains(e.target)) {
+              musicPanel.classList.remove('active');
+          }
+      });
+
+      // Initialize volume icon
+      updateVolumeIcon(audioPlayer.volume);
+
+      // Camera and Photo Album Functions
+      const photos = [
+        { src: "foto taman.jpeg", alt: "Us together in the park⛲💚" },
+        { src: "foto kucing.jpeg", alt: "Cute selfie squad at the feline hangout😼💛" },
+        { src: "makan ice cream.jpeg", alt: "ice cream therapy session together🍦🩵" },
+        { src: "study.jpeg", alt: "the best learning partner🧑🏼‍🤝‍👩🏻❤️‍🔥" },
+        { src: "movie.jpeg", alt: "Infinity Castle's most passionate duo🎬💜" },
+        { src: "curug.jpeg", alt: "Sweet without effort🏞️💙" },
+        { src: "pkl.jpeg", alt: "Pretty in the sweetest way 💖" },
+        { src: "girl2.jpeg", alt: "Pretty girl in a pretty place ❣️" },
+      ];
+
+      const frames = ["frame-polaroid"];
+
+      const photoAlbum = document.getElementById("photoAlbum");
+      const shutterBtn = document.getElementById("shutterBtn");
+      const cameraBody = document.querySelector(".camera-body");
+
+      // Global variables untuk tracking foto
+      let availablePhotos = [];
+      let usedPhotoIndexes = new Set();
+
+      // Function untuk reset album foto
+      function resetPhotoAlbum() {
+        availablePhotos = [...photos];
+        usedPhotoIndexes.clear();
+        photoAlbum.innerHTML = "";
+      }
+
+      // Function to show photo preview modal
+      function showPhotoModal(src, alt) {
+        const modal = document.createElement("div");
+        modal.classList.add("photo-preview-modal");
+
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = alt;
+
+        modal.appendChild(img);
+        document.body.appendChild(modal);
+
+        // Close modal when clicking outside the image
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.remove();
+          }
+        });
+      }
+
+      function showPhotoLimitPopup() {
+        const popup = document.createElement("div");
+        popup.classList.add("photo-limit-popup");
+        popup.innerHTML =
+          '<p class="message">Maaf sayang, Maksimal 8 foto ya 💖</p>';
+        document.body.appendChild(popup);
+
+        // Show with animation
+        setTimeout(() => {
+          popup.classList.add("show");
+        }, 10);
+
+        // Auto hide after 2.5 seconds
+        setTimeout(() => {
+          popup.classList.remove("show");
+          setTimeout(() => {
+            document.body.removeChild(popup);
+          }, 500);
+        }, 2500);
+      }
+
+      function showNoMorePhotosPopup() {
+        const popup = document.createElement("div");
+        popup.classList.add("photo-limit-popup");
+        popup.innerHTML =
+          '<p class="message">Semua foto sudah ditampilkan! 💖</p>';
+        document.body.appendChild(popup);
+
+        // Show with animation
+        setTimeout(() => {
+          popup.classList.add("show");
+        }, 10);
+
+        // Auto hide after 2.5 seconds
+        setTimeout(() => {
+          popup.classList.remove("show");
+          setTimeout(() => {
+            document.body.removeChild(popup);
+          }, 500);
+        }, 2500);
+      }
+
+      function showDuplicatePhotoPopup() {
+        const popup = document.createElement("div");
+        popup.classList.add("photo-limit-popup");
+        popup.innerHTML =
+          '<p class="message">Foto ini sudah ada di album! 💖</p>';
+        document.body.appendChild(popup);
+
+        // Show with animation
+        setTimeout(() => {
+          popup.classList.add("show");
+        }, 10);
+
+        // Auto hide after 2.5 seconds
+        setTimeout(() => {
+          popup.classList.remove("show");
+          setTimeout(() => {
+            document.body.removeChild(popup);
+          }, 500);
+        }, 2500);
+      }
+
+      function takePhoto() {
+        // Cek jika sudah mencapai batas maksimal foto
+        if (photoAlbum.children.length >= 8) {
+          showPhotoLimitPopup();
+          return;
+        }
+
+        // Cek jika tidak ada foto tersisa
+        if (availablePhotos.length === 0) {
+          showNoMorePhotosPopup();
+          return;
+        }
+
+        // Ambil foto acak dari yang tersedia
+        const randomIndex = Math.floor(Math.random() * availablePhotos.length);
+        const selectedPhoto = availablePhotos[randomIndex];
+        const randomFrame = frames[Math.floor(Math.random() * frames.length)];
+
+        // Cek apakah foto ini sudah ada di album
+        const isPhotoAlreadyInAlbum = Array.from(photoAlbum.children).some(
+          (item) => {
+            const img = item.querySelector("img");
+            return img && img.src.includes(selectedPhoto.src);
+          }
+        );
+
+        if (isPhotoAlreadyInAlbum) {
+          showDuplicatePhotoPopup();
+          return;
+        }
+
+        // Hapus foto yang dipilih dari array tersedia
+        availablePhotos.splice(randomIndex, 1);
+
+        // Flash effect
+        const flash = document.createElement("div");
+        flash.classList.add("flash-effect");
+        document.body.appendChild(flash);
+        flash.style.opacity = "1";
+        setTimeout(() => {
+          flash.style.opacity = "0";
+          setTimeout(() => {
+            document.body.removeChild(flash);
+          }, 300);
+        }, 200);
+
+        // Create photo div
+        const photoItem = document.createElement("div");
+        photoItem.classList.add("photo-item", randomFrame, "photo-emerging");
+
+        const img = document.createElement("img");
+        img.src = selectedPhoto.src;
+        img.alt = selectedPhoto.alt;
+
+        // Add click event to show modal
+        img.addEventListener("click", () => {
+          showPhotoModal(img.src, img.alt);
+        });
+
+        const caption = document.createElement("div");
+        caption.classList.add("photo-caption");
+        caption.textContent = selectedPhoto.alt;
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("delete-btn");
+        deleteBtn.innerHTML = "×";
+        deleteBtn.addEventListener("click", (e) => {
+          e.stopPropagation(); // Mencegah event bubbling
+
+          // Kembalikan foto ke array tersedia saat dihapus
+          availablePhotos.push({
+            src: selectedPhoto.src,
+            alt: selectedPhoto.alt,
+          });
+
+          photoItem.remove();
+        });
+
+        photoItem.appendChild(img);
+        photoItem.appendChild(caption);
+        photoItem.appendChild(deleteBtn);
+
+        // Position at center of viewport (lens position)
+        photoItem.style.position = "fixed";
+        photoItem.style.left = "50vw";
+        photoItem.style.top = "50vh";
+        photoItem.style.transform = "translate(-50%, -50%) scale(0.1)";
+        photoItem.style.zIndex = "9998";
+        photoItem.style.pointerEvents = "none";
+
+        document.body.appendChild(photoItem);
+
+        // Animate with GSAP
+        gsap.to(photoItem, {
+          scale: 1,
+          y: 250,
+          duration: 1.2,
+          ease: "power2.out",
+          onComplete: () => {
+            // Remove emerging class and add to album
+            photoItem.classList.remove("photo-emerging");
+            photoItem.style.position = "";
+            photoItem.style.left = "";
+            photoItem.style.top = "";
+            photoItem.style.transform = "";
+            photoItem.style.zIndex = "";
+            photoItem.style.pointerEvents = "";
+            photoAlbum.appendChild(photoItem);
+          },
+        });
+      }
+
+      // Reset available photos when restarting
+      document.getElementById("restart").addEventListener("click", function () {
+        resetPhotoAlbum();
+      });
+
+      // Reset album ketika pindah ke halaman gallery
+      document
+        .getElementById("toGallery")
+        .addEventListener("click", function () {
+          // Tunggu transisi halaman selesai
+          setTimeout(() => {
+            resetPhotoAlbum();
+          }, 1200);
+        });
+
+      // Reset album ketika menggunakan page dots
+      document
+        .querySelectorAll('.page-dot[data-page="gallery"]')
+        .forEach((dot) => {
+          dot.addEventListener("click", function () {
+            setTimeout(() => {
+              resetPhotoAlbum();
+            }, 1200);
+          });
+        });
+
+      // Camera body feedback - whole camera is now clickable
+      cameraBody.addEventListener("click", takePhoto);
+      cameraBody.addEventListener("mousedown", function () {
+        this.style.transform = "scale(0.98)";
+      });
+      cameraBody.addEventListener("mouseup", function () {
+        this.style.transform = "scale(1)";
+      });
+      cameraBody.addEventListener("mouseleave", function () {
+        this.style.transform = "scale(1)";
+      });
+      // Custom Cursor Movement
+      document.addEventListener("mousemove", (e) => {
+        const cursor = document.querySelector(".custom-cursor");
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+      });
+
+      // Comment popup functionality for Instagram-style post
+      const commentBtn = document.querySelector(".comment-btn");
+      const postComments = document.querySelector(".post-comments");
+
+// Perbaikan positioning untuk komentar popup
+commentBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    postComments.classList.toggle("visible");
+
+    if (postComments.classList.contains("visible")) {
+        // Position the popup ABOVE the button
+        const btnRect = commentBtn.getBoundingClientRect();
+        const postRect = commentBtn.closest(".instagram-post").getBoundingClientRect();
+        const popupWidth = 398; // Fixed width to match CSS
+
+        // Posisi di atas tombol dengan margin
+        postComments.style.bottom = (postRect.bottom - btnRect.top + 10) + "px";
+        postComments.style.left = Math.max(
+            10,
+            Math.min(
+                btnRect.left - postRect.left + btnRect.width / 2 - popupWidth / 2,
+                postRect.width - popupWidth - 10
+            )
+        ) + "px";
+        postComments.style.width = popupWidth + "px";
+    }
+});
+
+      // Close popup when clicking outside
+      document.addEventListener("click", (e) => {
+        if (
+          postComments.classList.contains("visible") &&
+          !postComments.contains(e.target) &&
+          !commentBtn.contains(e.target)
+        ) {
+          postComments.classList.remove("visible");
+        }
+      });
+
+      // Initialize everything when page loads
+      window.addEventListener("DOMContentLoaded", function () {
+        createFallingPetals();
+        resetPhotoAlbum(); // Reset album foto saat pertama kali load
+
+        if (loveClicked) {
+          document.getElementById("loveMessage").style.display = "block";
+          stopMovingButton();
+        }
+
+        performPageTransition(currentPage);
+      });
+let liked = false;
+
+function createBasicHearts(isUnlike, count) {
+    const likeHearts = ['💖', '💕', '💗', '💓'];
+    const unlikeHearts = ['💔', '❤️‍🩹', '🥀'];
+    const hearts = isUnlike ? unlikeHearts : likeHearts;
+    const likeBtn = document.getElementById('likeBtn');
+
+    if (!likeBtn) return;
+
+    const rect = likeBtn.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+
+    for (let i = 0; i < count; i++) {
+        setTimeout(() => {
+            const heart = document.createElement('div');
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+
+            // Styles for animation
+            heart.style.position = 'fixed';
+            heart.style.left = (x - 10 + (Math.random() * 20)) + 'px';
+            heart.style.top = y + 'px';
+            heart.style.fontSize = (20 + Math.random() * 15) + 'px';
+            heart.style.zIndex = '9999';
+            heart.style.pointerEvents = 'none';
+            heart.style.animation = 'heartFly 1.5s ease-out forwards';
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 1500);
+
+        }, i * 200);
+    }
+}
+
+// Like button event listener
+document.getElementById('likeBtn').addEventListener('click', function() {
+    const likeBtn = this;
+
+    // Toggle visual state
+    if (liked) {
+        likeBtn.classList.remove('liked');
+        likeBtn.innerHTML = '❤️';
+        likeBtn.style.background = '';
+    } else {
+        likeBtn.classList.add('liked');
+        likeBtn.innerHTML = '💖';
+        likeBtn.style.background = '#ff3040';
+    }
+
+    // Create hearts
+    const count = Math.floor(Math.random() * 5) + 6; // 6-10 hearts
+    createBasicHearts(liked, count);
+
+    // Toggle liked state
+    liked = !liked;
+
+    // Click effect
+    likeBtn.style.transform = 'scale(1.2)';
+    setTimeout(() => {
+        likeBtn.style.transform = 'scale(1)';
+    }, 200);
+});
+
+// CSS for heart animation
+const heartCSS = `
+@keyframes heartFly {
+    0% {
+        transform: translate(0, 0) scale(0.3);
+        opacity: 0;
+    }
+    20% {
+        transform: translate(0, -40px) scale(1.3);
+        opacity: 1;
+    }
+    60% {
+        transform: translate(0, -100px) scale(0.9);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(0, -120px) scale(0.5);
+        opacity: 0;
+    }
+}
+`;
+
+// Inject CSS
+const style = document.createElement('style');
+style.textContent = heartCSS;
+document.head.appendChild(style);
+    </script>
+  </body>
+</html>
